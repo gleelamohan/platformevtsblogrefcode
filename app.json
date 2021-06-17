@@ -2,15 +2,15 @@
   "name":"Fan-out pattern Demo",
   "Description":"This app fires the message to all the clients",
   "env": {
-    "1.USERNAME": {
+    "USERNAME": {
       "description":"Enter Salesorce org username",
       "value":""
     },
-    "2.PASSWORD": {
+    "PASSWORD": {
       "description":"Enter Salesorce org password",
       "value":""
     },
-    "3.SECURITYTOKEN": {
+    "SECURITYTOKEN": {
       "description":"Enter Salesorce Security token, leave it as blank for SDOs and Production orgs",
       "value":"",
       "required": false
