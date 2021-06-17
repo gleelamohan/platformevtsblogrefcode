@@ -1,0 +1,30 @@
+{
+  "name":"Fan-out pattern Demo",
+  "Description":"This app fires the message to all the clients",
+  "env": {
+    "CLIENTID": {
+      "description":"Enter Salesorce connected app ClientId",
+      "value":""
+    },
+    "CLIENTSECRET": {
+      "description":"Enter Salesorce connected app Client Secret",
+      "value":""
+    },
+    "USERNAME": {
+      "description":"Enter Salesorce org username",
+      "value":""
+    },
+    "PASSWORD": {
+      "description":"Enter Salesorce org password",
+      "value":""
+    },
+    "CALLBACKURL": {
+      "description":"Enter Salesorce connected app Callback URL",
+      "value":""
+    },
+    "EVENTCHANNEL": {
+      "description":"Enter Salesorce Event Channel Name (example: case__e)",
+      "value":""
+    }
+  }
+}
