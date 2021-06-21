@@ -6,14 +6,17 @@
       "description":"Enter Salesorce org username",
       "value":""
     },
-    "PASSWORD": {
-      "description":"Enter Salesorce org password",
+    "CLIENTID": {
+      "description":"Enter Salesorce org clientId",
       "value":""
     },
-    "SECURITYTOKEN": {
-      "description":"Enter Salesorce Security token, leave it as blank for SDOs and Production orgs",
-      "value":"",
-      "required": false
+    "URL": {
+      "description":"Enter Salesorce login url",
+      "value":""
+    },
+    "KEY": {
+      "description":"Enter Salesorce server key",
+      "value":""
     }
   }
 }

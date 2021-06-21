@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var config = require('./config.js');
 var jsforce = require('jsforce');
 var routes = require('./routes/index');
+const { getToken } = require('sf-jwt-token')
 
 var app = express();
 var server = require('http').Server(app);
@@ -13,12 +14,45 @@ var socket = io.sockets.on('connection', function (socket) { });
 var replayId = -1; // -1 = Only New messages | -2 = All Window and New
 
 var channel = '/data/CaseChangeEvent';
-var user = config.USERNAME;
+/*var user = config.USERNAME;
 var pass = config.PASSWORD;
-var securityToken = config.SECURITYTOKEN ;
-var conn = new jsforce.Connection();
+var securityToken = config.SECURITYTOKEN ;*/
+const conn = new jsforce.Connection();
 
+ getToken({
+  iss: config.CLIENTID,
+  sub: config.USERNAME,
+  aud: config.URL,
+  privateKey: config.KEY
+}, function(err, response){
 
+  if (err) {
+    console.error(err);
+  } else {
+    conn.initialize({
+      instanceUrl: response.instance_url,
+      accessToken: response.access_token
+    });
+    console.log('Successfully connected to Org');
+
+    var client = conn.streaming.createClient([
+      new jsforce.StreamingExtension.Replay(channel, replayId),
+      new jsforce.StreamingExtension.AuthFailure(function () {
+        console.log('failed');
+        return process.exit(1);
+      }),
+    ]);
+  
+    subscription = client.subscribe(channel, function (data) {
+      console.log('Received CDC Event');
+      socket.send(JSON.stringify(data));
+      console.log('Data sent to clients!!');
+    });
+  }
+
+});
+
+/*
  conn.login(user, pass + securityToken, function (err, res) {
 	console.log('loggedin');
 	if (err) {
@@ -38,7 +72,7 @@ var conn = new jsforce.Connection();
 		socket.send(JSON.stringify(data));
 		console.log('Data sent to clients!!');
 	});
-});
+}); */
 
 // setup view engine 
 app.set('views', path.join(__dirname, 'views'));
