@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var config = require('./config.js');
 var jsforce = require('jsforce');
 var routes = require('./routes/index');
-const { getToken } = require('sf-jwt-token')
+const { getToken } = require('salesforce-jwt-bearer-token-flow');
 
 var app = express();
 var server = require('http').Server(app);
