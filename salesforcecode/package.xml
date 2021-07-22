@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>fanout</fullName>
+    <types>
+        <members>CDCcontroller</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>websocket_server_url</members>
+        <name>CustomLabel</name>
+    </types>
+    <types>
+        <members>CustomLabels</members>
+        <name>CustomLabels</name>
+    </types>
+    <types>
+        <members>subscribetoWebSocket</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <types>
+        <members>socketiojs</members>
+        <name>StaticResource</name>
+    </types>
+    <version>51.0</version>
+</Package>
