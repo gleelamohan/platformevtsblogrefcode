@@ -8,7 +8,10 @@ https://salesforce.quip.com/cyruAWAWDFxA
 Heroku Required Environmental Variables
 
 Salesforce CLIENTID
+
 Salesforce SERVER KEY
+
 Salesforce login URL
+
 Salesforce USERNAME
 
